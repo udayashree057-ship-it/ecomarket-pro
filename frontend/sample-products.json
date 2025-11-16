@@ -1,0 +1,18 @@
+{
+  "sampleProducts": [
+    {
+      "name": "Bamboo Water Bottle",
+      "description": "Eco-friendly reusable water bottle made from sustainable bamboo. Keeps drinks cold for 24 hours.",
+      "price": 599,
+      "category": "bamboo",
+      "ecoRating": 5,
+      "carbonFootprint": 0.5,
+      "manufacturer": "EcoWare India Pvt Ltd",
+      "manufacturerLocation": "Bangalore, Karnataka, India",
+      "usageInstructions": "Wash before first use. Hand wash only with mild soap. Do not microwave or freeze. Not dishwasher safe. Perfect for water, juice, and cold beverages.",
+      "recyclingInfo": "100% biodegradable bamboo material. At end of life, remove metal cap and compost the bamboo body. Metal parts can be recycled separately. Return to manufacturer for proper disposal.",
+      "forRent": false
+    }
+  ],
+  "instructions": "These are sample products for testing. When adding products as a seller, use these as reference for the type of information to include."
+}
