@@ -1,235 +1,129 @@
 # 🌱 EcoMarket - Sustainable E-Commerce Platform
 
-A full-stack e-commerce platform for eco-friendly products with Buy/Sell/Rent functionality, built with React and Node.js.
+A full-stack e-commerce platform for eco-friendly products with Buy/Sell/Rent functionality.
+
+**Live Demo**: [Deploy on Railway](docs/RAILWAY_DEPLOYMENT.md)
+
+---
+
+## ✨ Features
+
+- 🔐 **Authentication** - JWT-based user authentication
+- 👥 **Three User Roles** - Buyer, Seller, Renter
+- 🛍️ **Product Management** - Add, edit, delete products with images
+- 🛒 **Shopping Cart** - Full cart and checkout experience
+- 💳 **UPI Payments** - QR code-based payments
+- 📦 **Order Tracking** - Complete order management
+- 🌍 **Multilingual** - English, Hindi, Kannada
+- 🤖 **AI Features** - Chatbot and voice assistant
+- 📱 **Responsive** - Works on all devices
 
 ---
 
 ## 🚀 Quick Start
 
-### Prerequisites
-- Node.js (v14+)
-- MongoDB (local or cloud)
+### Local Development
 
-### Installation
-
-1. **Clone the repository**
 ```bash
-git clone <repository-url>
-cd ecomarket
-```
+# 1. Clone repository
+git clone https://github.com/udayashree057-ship-it/ecomarket-pro.git
+cd ecomarket-pro
 
-2. **Start MongoDB**
-```bash
+# 2. Start MongoDB
 mongod
-```
 
-3. **Start Backend** (Terminal 1)
-```bash
+# 3. Start Backend
 cd backend
 npm install
 npm run dev
 # Runs on http://localhost:3001
-```
 
-4. **Start Frontend** (Terminal 2)
-```bash
+# 4. Start Frontend (new terminal)
 cd frontend-new
 npm install
 npm run dev
 # Runs on http://localhost:5173
 ```
 
-5. **Open Browser**
-```
-http://localhost:5173
-```
+**See detailed guide**: [docs/QUICK_START.md](docs/QUICK_START.md)
 
 ---
 
-## ✨ Features
+## 🚂 Deploy on Railway (10 minutes)
 
-### 🔐 Authentication
-- User registration and login
-- JWT token authentication
-- Secure password hashing (bcrypt)
-- Role-based access control
+1. Push code to GitHub ✅ (already done)
+2. Deploy backend to Railway
+3. Deploy frontend to Railway
+4. Your app is live!
 
-### 👥 Three User Roles
-- **Buyer** - Browse and purchase products
-- **Seller** - List and manage products
-- **Renter** - Rent products temporarily
+**Complete guide**: [docs/RAILWAY_DEPLOYMENT.md](docs/RAILWAY_DEPLOYMENT.md)
 
-### 🛍️ Product Management
-- Add/Edit/Delete products
-- Image upload support
-- Product categories
-- Eco-rating (1-5 stars)
-- Carbon footprint tracking
-- Stock management
-- Product details modal
-
-### 🛒 Shopping Experience
-- Product search and filters
-- Shopping cart
-- Add to cart from product details
-- Checkout process
-- Order placement
-
-### 💳 Payment System
-- UPI payment with QR code
-- Payment verification
-- Order tracking
-- Payment status updates
-
-### 📦 Order Management
-- Order history
-- Order status tracking
-- Seller payment details
-- Retry payment option
-
-### 🌍 Multilingual Support
-- English
-- Hindi (हिंदी)
-- Kannada (ಕನ್ನಡ)
-- Language switcher in navbar
-
-### 🤖 AI Features
-- Voice Assistant - Voice commands for navigation
-- Chatbot - AI-powered customer support
+**Cost**: FREE (Railway free tier)
 
 ---
 
 ## 📁 Project Structure
 
 ```
-ecomarket/
-├── backend/                    # Node.js + Express + MongoDB
-│   ├── server.js              # API server
+ecomarket-pro/
+├── backend/              # Node.js + Express API
+│   ├── server.js        # Main server file
 │   └── package.json
 │
-├── frontend-new/              # React + Vite
+├── frontend-new/        # React + Vite frontend
 │   ├── src/
-│   │   ├── components/       # Reusable components
-│   │   │   ├── Cart.jsx
-│   │   │   ├── Chatbot.jsx
-│   │   │   ├── Navbar.jsx
-│   │   │   ├── ProductCard.jsx
-│   │   │   ├── ProductDetailsModal.jsx
-│   │   │   ├── UpiPaymentModal.jsx
-│   │   │   └── VoiceAssistant.jsx
-│   │   │
-│   │   ├── context/          # State management
-│   │   │   └── AppContext.jsx
-│   │   │
-│   │   ├── pages/            # Page components
-│   │   │   ├── Auth.jsx
-│   │   │   ├── Buyer.jsx
-│   │   │   ├── Orders.jsx
-│   │   │   ├── Renter.jsx
-│   │   │   ├── RoleSelection.jsx
-│   │   │   └── Seller.jsx
-│   │   │
-│   │   ├── services/         # API layer
-│   │   │   └── api.js
-│   │   │
-│   │   ├── utils/            # Utilities
-│   │   │   └── translations.js
-│   │   │
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   │
+│   │   ├── components/  # Reusable components
+│   │   ├── pages/       # Page components
+│   │   ├── context/     # State management
+│   │   └── services/    # API services
 │   └── package.json
 │
-├── QUICK_START.md            # Quick start guide
-├── TROUBLESHOOTING.md        # Common issues
-└── README.md                 # This file
+├── docs/                # Documentation
+│   ├── RAILWAY_DEPLOYMENT.md
+│   ├── QUICK_START.md
+│   └── TROUBLESHOOTING.md
+│
+└── README.md           # This file
 ```
 
 ---
 
-## 🔧 Technology Stack
+## 🔧 Tech Stack
 
-### Frontend
-- **React 19** - UI framework
-- **Vite** - Build tool
-- **React Router** - Navigation
-- **Context API** - State management
-- **QRCode.js** - QR code generation
-- **jsQR** - QR code scanning
+**Frontend**
+- React 19
+- Vite
+- Context API
+- React Router
 
-### Backend
-- **Node.js** - Runtime
-- **Express** - Web framework
-- **MongoDB** - Database
-- **Mongoose** - ODM
-- **JWT** - Authentication
-- **bcrypt** - Password hashing
-- **Multer** - File uploads
-- **CORS** - Cross-origin requests
+**Backend**
+- Node.js
+- Express
+- MongoDB + Mongoose
+- JWT Authentication
+- bcrypt
+
+**Database**
+- MongoDB Atlas (Cloud)
 
 ---
 
-## 📱 How to Use
+## 📖 Documentation
 
-### As a Buyer
-1. Register/Login
-2. Select "Buyer" role
-3. Browse products
-4. Click on product for details
-5. Add to cart
-6. Checkout
-7. Complete payment
-8. Track orders
-
-### As a Seller
-1. Register/Login
-2. Select "Seller" role
-3. Add payment details (UPI/Bank)
-4. Add products with details
-5. Manage inventory
-6. View orders
-
-### As a Renter
-1. Register/Login
-2. Select "Renter" role
-3. Browse rental products
-4. Search and filter
-5. Rent products
+- **[Railway Deployment](docs/RAILWAY_DEPLOYMENT.md)** - Deploy to production
+- **[Quick Start](docs/QUICK_START.md)** - Local development setup
+- **[Troubleshooting](docs/TROUBLESHOOTING.md)** - Common issues
 
 ---
 
-## 🌐 API Endpoints
-
-### Authentication
-- `POST /api/auth/register` - Register user
-- `POST /api/auth/login` - Login user
-- `GET /api/auth/profile` - Get profile
-- `PUT /api/auth/profile` - Update profile
-
-### Products
-- `GET /api/products` - Get all products
-- `POST /api/products` - Create product
-- `GET /api/products/:id` - Get product
-- `PUT /api/products/:id` - Update product
-- `DELETE /api/products/:id` - Delete product
-
-### Orders
-- `GET /api/orders` - Get all orders
-- `POST /api/orders` - Create order
-- `PUT /api/orders/:id` - Update order
-
-### Payments
-- `POST /api/payments/verify` - Verify payment
-
----
-
-## 🔐 Environment Variables
+## 🌐 Environment Variables
 
 ### Backend (`backend/.env`)
 ```env
 PORT=3001
-MONGODB_URI=mongodb://localhost:27017/ecomarket
-JWT_SECRET=your-secret-key-change-in-production
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+NODE_ENV=development
 ```
 
 ### Frontend (`frontend-new/.env`)
@@ -240,113 +134,30 @@ VITE_USE_BACKEND=true
 
 ---
 
-## 🧪 Testing
+## 🎯 Key Features
 
-### Test Backend
-```bash
-curl http://localhost:3001/api/health
-```
+### For Buyers
+- Browse eco-friendly products
+- Search and filter
+- Add to cart
+- Checkout with UPI
+- Track orders
 
-### Test Frontend
-1. Open http://localhost:5173
-2. Register a new account
-3. Login
-4. Add products as seller
-5. Browse as buyer
-6. Place an order
+### For Sellers
+- Add products with images
+- Set prices and eco-ratings
+- Manage inventory
+- View orders
 
----
-
-## 📖 Documentation
-
-### Getting Started
-- **QUICK_START.md** - Local development setup
-- **TROUBLESHOOTING.md** - Common issues and solutions
-
-### Deployment
-- **deploy.md** - Quick deploy (5 minutes)
-- **DEPLOYMENT_QUICK_START.md** - Visual step-by-step guide
-- **DEPLOYMENT_GUIDE.md** - Complete deployment guide
-- **PRE_DEPLOYMENT_CHECKLIST.md** - Pre-deployment checklist
-
-### Features
-- **frontend-new/FEATURES.md** - Complete feature list
-- **frontend-new/PRODUCT_DETAILS.md** - Product details modal
-- **frontend-new/UPI_PAYMENT_GUIDE.md** - Payment integration
+### For Renters
+- Browse rental products
+- Rent items temporarily
 
 ---
 
-## 🚀 Deployment
+## 📱 Screenshots
 
-### Deploy to Production (FREE - 5 Minutes)
-
-**Quick Start**: Open `START_DEPLOYMENT.txt` or `deploy.md`
-
-#### Three Simple Steps:
-
-1. **Database** (MongoDB Atlas) - 2 min
-   - Free 512MB cluster
-   - https://mongodb.com/cloud/atlas
-
-2. **Backend** (Render) - 2 min
-   - Free 750 hours/month
-   - https://render.com
-
-3. **Frontend** (Vercel) - 1 min
-   - Free 100GB bandwidth
-   - https://vercel.com
-
-**Total Cost**: $0/month on free tier
-
-**Detailed Guides**:
-- `deploy.md` - Ultra-quick guide (5 min)
-- `DEPLOYMENT_QUICK_START.md` - Visual step-by-step
-- `DEPLOYMENT_GUIDE.md` - Complete guide (30 min)
-- `PRE_DEPLOYMENT_CHECKLIST.md` - Pre-flight checklist
-
----
-
-## 🐛 Troubleshooting
-
-**Backend shows login page?**
-- Backend is API-only, use http://localhost:5173 for frontend
-
-**Products not loading?**
-- Check backend is running on port 3001
-- Check MongoDB is running
-- Check browser console for errors
-
-**Payment not working?**
-- Verify UPI ID format
-- Check payment details saved
-- Check order creation
-
-See **TROUBLESHOOTING.md** for more help.
-
----
-
-## 🎯 Key Features Implemented
-
-✅ User authentication with JWT  
-✅ Three user roles (Buyer/Seller/Renter)  
-✅ Product management with images  
-✅ Product details modal  
-✅ Shopping cart and checkout  
-✅ UPI payment with QR codes  
-✅ Order tracking and history  
-✅ Payment verification  
-✅ Multilingual support (3 languages)  
-✅ Voice assistant  
-✅ AI chatbot  
-✅ Responsive design  
-✅ MongoDB database  
-✅ RESTful API  
-
----
-
-## 📄 License
-
-Open source - Free to use for educational and commercial purposes.
+*Coming soon*
 
 ---
 
@@ -356,6 +167,30 @@ Contributions welcome! Please open an issue or submit a pull request.
 
 ---
 
-**Built with ❤️ for sustainable e-commerce 🌱**
+## 📄 License
 
-**Ready to use!** Start both servers and visit http://localhost:5173
+Open source - Free to use for educational and commercial purposes.
+
+---
+
+## 🔗 Links
+
+- **GitHub**: https://github.com/udayashree057-ship-it/ecomarket-pro.git
+- **Railway**: https://railway.app
+- **MongoDB Atlas**: https://cloud.mongodb.com
+
+---
+
+## 🎉 Get Started
+
+**For Local Development**: See [docs/QUICK_START.md](docs/QUICK_START.md)
+
+**For Deployment**: See [docs/RAILWAY_DEPLOYMENT.md](docs/RAILWAY_DEPLOYMENT.md)
+
+**Having Issues?**: See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)
+
+---
+
+**Built with ❤️ for sustainable e-commerce** 🌱
+
+**Ready to deploy?** Follow the [Railway Deployment Guide](docs/RAILWAY_DEPLOYMENT.md)!
