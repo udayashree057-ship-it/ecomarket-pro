@@ -2,7 +2,7 @@
 
 ## 🚀 Deployment
 
-**[Railway Deployment Guide](RAILWAY_DEPLOYMENT.md)** - Deploy your app on Railway (10 minutes)
+See **[../DEPLOY.md](../DEPLOY.md)** - Deploy on Render + Vercel (100% FREE)
 
 ---
 

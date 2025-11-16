@@ -49,16 +49,16 @@ npm run dev
 
 ---
 
-## 🚂 Deploy on Railway (10 minutes)
+## 🚀 Deploy (10 minutes - 100% FREE)
 
 1. Push code to GitHub ✅ (already done)
-2. Deploy backend to Railway
-3. Deploy frontend to Railway
+2. Deploy backend to Render (5 min)
+3. Deploy frontend to Vercel (3 min)
 4. Your app is live!
 
-**Complete guide**: [docs/RAILWAY_DEPLOYMENT.md](docs/RAILWAY_DEPLOYMENT.md)
+**Complete guide**: [DEPLOY.md](DEPLOY.md)
 
-**Cost**: FREE (Railway free tier)
+**Cost**: $0/month forever (no credit card needed)
 
 ---
 
@@ -110,7 +110,7 @@ ecomarket-pro/
 
 ## 📖 Documentation
 
-- **[Railway Deployment](docs/RAILWAY_DEPLOYMENT.md)** - Deploy to production
+- **[Deployment Guide](DEPLOY.md)** - Deploy to production (Render + Vercel)
 - **[Quick Start](docs/QUICK_START.md)** - Local development setup
 - **[Troubleshooting](docs/TROUBLESHOOTING.md)** - Common issues
 
@@ -176,7 +176,8 @@ Open source - Free to use for educational and commercial purposes.
 ## 🔗 Links
 
 - **GitHub**: https://github.com/udayashree057-ship-it/ecomarket-pro.git
-- **Railway**: https://railway.app
+- **Render**: https://render.com
+- **Vercel**: https://vercel.com
 - **MongoDB Atlas**: https://cloud.mongodb.com
 
 ---
@@ -185,7 +186,7 @@ Open source - Free to use for educational and commercial purposes.
 
 **For Local Development**: See [docs/QUICK_START.md](docs/QUICK_START.md)
 
-**For Deployment**: See [docs/RAILWAY_DEPLOYMENT.md](docs/RAILWAY_DEPLOYMENT.md)
+**For Deployment**: See [DEPLOY.md](DEPLOY.md)
 
 **Having Issues?**: See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)
 
@@ -193,4 +194,4 @@ Open source - Free to use for educational and commercial purposes.
 
 **Built with ❤️ for sustainable e-commerce** 🌱
 
-**Ready to deploy?** Follow the [Railway Deployment Guide](docs/RAILWAY_DEPLOYMENT.md)!
+**Ready to deploy?** Follow the [Deployment Guide](DEPLOY.md)!
