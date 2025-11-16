@@ -3,25 +3,20 @@
   "name": "ecomarket",
   "builds": [
     {
-      "src": "server.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "public/**",
-      "use": "@vercel/static"
+      "src": "frontend-new/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "server.js"
-    },
-    {
       "src": "/(.*)",
-      "dest": "server.js"
+      "dest": "/frontend-new/$1"
     }
   ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  "buildCommand": "cd frontend-new && npm install && npm run build",
+  "outputDirectory": "frontend-new/dist",
+  "framework": "vite"
 }

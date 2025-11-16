@@ -1,353 +1,361 @@
-# 🌱 EcoMarket - Complete E-Commerce Platform
+# 🌱 EcoMarket - Sustainable E-Commerce Platform
 
-**100% Complete & Ready to Use!** A fully functional e-commerce platform with all requested features implemented.
+A full-stack e-commerce platform for eco-friendly products with Buy/Sell/Rent functionality, built with React and Node.js.
 
 ---
 
 ## 🚀 Quick Start
 
-### Fastest Way (No Installation)
-1. Double-click `start-simple.bat` (Windows)
-2. OR open `test-platform.html` in your browser
-3. OR open `index.html` directly
+### Prerequisites
+- Node.js (v14+)
+- MongoDB (local or cloud)
 
-### With Backend (Production Ready)
-1. Double-click `start-backend.bat` (Windows)
-2. OR run: `npm install && npm start`
-3. Open: `http://localhost:3000`
+### Installation
 
----
+1. **Clone the repository**
+```bash
+git clone <repository-url>
+cd ecomarket
+```
 
-## ✅ Complete Feature Checklist
+2. **Start MongoDB**
+```bash
+mongod
+```
 
-### Authentication & User Management
-- ✅ Registration page (name, email, password, phone, address)
-- ✅ Login page for registered users
-- ✅ Secure JWT authentication
-- ✅ Password hashing with bcrypt
+3. **Start Backend** (Terminal 1)
+```bash
+cd backend
+npm install
+npm run dev
+# Runs on http://localhost:3001
+```
 
-### Three User Roles
-- ✅ **Buyer**: Browse and purchase products
-- ✅ **Seller**: Add and manage products
-- ✅ **Renter**: Browse and rent products
+4. **Start Frontend** (Terminal 2)
+```bash
+cd frontend-new
+npm install
+npm run dev
+# Runs on http://localhost:5173
+```
 
-### Product Management
-- ✅ Add unlimited products
-- ✅ Upload product images
-- ✅ Set prices in Indian Rupees (₹)
-- ✅ Product categories: Plastic, Wood, Steel, Electric, Bamboo, Metals
-- ✅ Seller details (name, email, phone)
-
-### Unique Barcode System
-- ✅ Every product gets unique barcode: **ECO-YYYYMMDD-XXXXX**
-- ✅ QR code generation
-- ✅ Barcode scanner (camera + image upload)
-- ✅ Complete product lifecycle information:
-  - **WHO**: Manufacturer name
-  - **WHEN**: Manufacture date, expiry date
-  - **WHERE**: Manufacturing location
-  - **HOW TO USE**: Usage instructions
-  - **HOW TO RECYCLE**: Recycling information
-
-### Eco-Friendly Features
-- ✅ Eco-rating (1-5 stars) for each product
-- ✅ Carbon footprint tracking (kg CO₂)
-- ✅ Environmental impact display
-- ✅ Sustainability metrics
-
-### Shopping & Checkout
-- ✅ Shopping cart with add/remove/update
-- ✅ Cart quantity management
-- ✅ Checkout process
-- ✅ Delivery address input
-
-### Payment Methods
-- ✅ Cash on Delivery (COD)
-- ✅ Online Payment (card details)
-
-### Order Management
-- ✅ Order placement with confirmation
-- ✅ SMS/notification after order
-- ✅ Order tracking with timeline
-- ✅ Expected delivery date (7 days default)
-- ✅ Actual delivery date tracking
-- ✅ Status updates: Order Placed, Processing, Shipped, Out for Delivery, Delivered
-- ✅ Product received confirmation
-
-### Customer Management System
-- ✅ Add/Edit/Delete customers
-- ✅ Search customers
-- ✅ Track all customer orders
-- ✅ View order history per customer
-- ✅ Total orders count
-- ✅ Last order date tracking
-- ✅ Expected vs actual delivery dates
-- ✅ Export customer data (JSON)
-
-### Feedback System
-- ✅ Customer feedback after delivery
-- ✅ Multiple rating categories:
-  - Product Quality
-  - Delivery Experience
-  - Value for Money
-  - Overall Rating
-- ✅ Comments and recommendations
-- ✅ Feedback display in order history
-
-### Multilingual Support
-- ✅ English
-- ✅ Kannada (ಕನ್ನಡ)
-- ✅ Telugu (తెలుగు)
-- ✅ Hindi (हिंदी)
-- ✅ Urdu (اردو)
-- ✅ Malayalam (മലയാളം)
-- ✅ Tamil (தமிழ்)
-
-### Voice Assistant
-- ✅ Voice commands for navigation
-- ✅ Speech recognition
-- ✅ Text-to-speech responses
-
-### Chatbot
-- ✅ AI-powered chat assistant
-- ✅ Product information
-- ✅ Shopping help
-- ✅ Platform guidance
-
-### Search & Filter
-- ✅ Product search bar
-- ✅ Category filtering
-- ✅ Rental product search
-
-### Rental System
-- ✅ Products available for rent
-- ✅ Rent price per day
-- ✅ Separate rental marketplace
+5. **Open Browser**
+```
+http://localhost:5173
+```
 
 ---
 
-## 📱 How to Use
+## ✨ Features
 
-### 1. Register & Login
-1. Open the platform
-2. Click "Register"
-3. Fill in all details
-4. Login with credentials
+### 🔐 Authentication
+- User registration and login
+- JWT token authentication
+- Secure password hashing (bcrypt)
+- Role-based access control
 
-### 2. As a Buyer
-1. Select "Buyer" role
-2. Browse products
-3. Search or filter by category
-4. Click product for details
-5. Scan barcode for lifecycle info
-6. Add to cart
-7. Checkout
-8. Enter delivery address
-9. Choose payment method
-10. Place order
-11. Track order status
-12. Confirm receipt
-13. Provide feedback
+### 👥 Three User Roles
+- **Buyer** - Browse and purchase products
+- **Seller** - List and manage products
+- **Renter** - Rent products temporarily
 
-### 3. As a Seller
-1. Select "Seller" role
-2. Fill product form:
-   - Name, Description, Price
-   - Category, Image
-   - Eco-rating, Carbon footprint
-   - Manufacturer details
-   - Manufacturing location & date
-   - Expiry date (optional)
-   - Usage instructions
-   - Recycling information
-3. Click "Add Product"
-4. Get unique barcode automatically
-5. Manage your products
+### 🛍️ Product Management
+- Add/Edit/Delete products
+- Image upload support
+- Product categories
+- Eco-rating (1-5 stars)
+- Carbon footprint tracking
+- Stock management
+- Product details modal
 
-### 4. As a Renter
-1. Select "Renter" role
-2. Browse rental products
-3. Search for items
-4. Click "Rent Now"
-5. Enter rental duration
-6. Confirm rental
+### 🛒 Shopping Experience
+- Product search and filters
+- Shopping cart
+- Add to cart from product details
+- Checkout process
+- Order placement
 
-### 5. Customer Management (👥)
-1. Click customer icon
-2. Add new customers
-3. Search customers
-4. View customer orders
-5. Track delivery status
-6. Update delivery dates
-7. Request feedback
-8. Export data
+### 💳 Payment System
+- UPI payment with QR code
+- Payment verification
+- Order tracking
+- Payment status updates
 
-### 6. Barcode Scanner (📷)
-1. Click camera icon
-2. Choose camera or upload
-3. Scan QR code
-4. View complete product info
+### 📦 Order Management
+- Order history
+- Order status tracking
+- Seller payment details
+- Retry payment option
 
-### 7. Voice Assistant (🎤)
-1. Click microphone
-2. Say command
-3. Get response
+### 🌍 Multilingual Support
+- English
+- Hindi (हिंदी)
+- Kannada (ಕನ್ನಡ)
+- Language switcher in navbar
 
-### 8. Chatbot (💬)
-1. Click chat icon
-2. Type question
-3. Get instant answer
+### 🤖 AI Features
+- Voice Assistant - Voice commands for navigation
+- Chatbot - AI-powered customer support
 
-### 9. Change Language
-1. Click language dropdown
-2. Select language
-3. Interface updates
+---
+
+## 📁 Project Structure
+
+```
+ecomarket/
+├── backend/                    # Node.js + Express + MongoDB
+│   ├── server.js              # API server
+│   └── package.json
+│
+├── frontend-new/              # React + Vite
+│   ├── src/
+│   │   ├── components/       # Reusable components
+│   │   │   ├── Cart.jsx
+│   │   │   ├── Chatbot.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── ProductCard.jsx
+│   │   │   ├── ProductDetailsModal.jsx
+│   │   │   ├── UpiPaymentModal.jsx
+│   │   │   └── VoiceAssistant.jsx
+│   │   │
+│   │   ├── context/          # State management
+│   │   │   └── AppContext.jsx
+│   │   │
+│   │   ├── pages/            # Page components
+│   │   │   ├── Auth.jsx
+│   │   │   ├── Buyer.jsx
+│   │   │   ├── Orders.jsx
+│   │   │   ├── Renter.jsx
+│   │   │   ├── RoleSelection.jsx
+│   │   │   └── Seller.jsx
+│   │   │
+│   │   ├── services/         # API layer
+│   │   │   └── api.js
+│   │   │
+│   │   ├── utils/            # Utilities
+│   │   │   └── translations.js
+│   │   │
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   └── package.json
+│
+├── QUICK_START.md            # Quick start guide
+├── TROUBLESHOOTING.md        # Common issues
+└── README.md                 # This file
+```
 
 ---
 
 ## 🔧 Technology Stack
 
 ### Frontend
-- HTML5, CSS3, JavaScript
-- QRCode.js, jsQR
-- Web Speech API
-- MediaDevices API
+- **React 19** - UI framework
+- **Vite** - Build tool
+- **React Router** - Navigation
+- **Context API** - State management
+- **QRCode.js** - QR code generation
+- **jsQR** - QR code scanning
 
 ### Backend
-- Node.js, Express.js
-- MongoDB, Mongoose
-- JWT, bcrypt
-- Multer, CORS
+- **Node.js** - Runtime
+- **Express** - Web framework
+- **MongoDB** - Database
+- **Mongoose** - ODM
+- **JWT** - Authentication
+- **bcrypt** - Password hashing
+- **Multer** - File uploads
+- **CORS** - Cross-origin requests
 
 ---
 
-## 📦 Files
+## 📱 How to Use
 
-- `index.html` - Main application
-- `app.js` - Frontend logic
-- `styles.css` - Styling
-- `translations.js` - Languages
-- `server.js` - Backend API
-- `test-platform.html` - Test page
-- `start-simple.bat` - Simple launcher
-- `start-backend.bat` - Backend launcher
-- `START_HERE.md` - Quick guide
-- `SETUP_GUIDE.md` - Detailed setup
-
----
-
-## 🎯 Test Flow
-
-1. Open platform
-2. Register account
-3. Login
-4. Add product as seller
-5. Browse as buyer
-6. Add to cart
-7. Checkout
-8. Track order
-9. Scan barcode
-10. Try voice & chat
-
----
-
-## 🌟 Key Features
-
-### Unique Barcode
-- Format: ECO-20241115-12345
-- QR code with full data
-- Scannable
-- Complete lifecycle tracking
-
-### Order Lifecycle
-1. Order Placed
-2. Processing
-3. Shipped
-4. Out for Delivery
-5. Delivered
-6. Product Received
-7. Feedback Submitted
-
-### Customer Journey
+### As a Buyer
 1. Register/Login
-2. Browse
-3. Cart
-4. Checkout
-5. Confirmation
-6. Track
-7. Receive
-8. Feedback
+2. Select "Buyer" role
+3. Browse products
+4. Click on product for details
+5. Add to cart
+6. Checkout
+7. Complete payment
+8. Track orders
+
+### As a Seller
+1. Register/Login
+2. Select "Seller" role
+3. Add payment details (UPI/Bank)
+4. Add products with details
+5. Manage inventory
+6. View orders
+
+### As a Renter
+1. Register/Login
+2. Select "Renter" role
+3. Browse rental products
+4. Search and filter
+5. Rent products
 
 ---
 
-## 🔐 Security
+## 🌐 API Endpoints
 
-- Password hashing (bcrypt)
-- JWT authentication
-- Protected routes
-- Input validation
-- Secure sessions
+### Authentication
+- `POST /api/auth/register` - Register user
+- `POST /api/auth/login` - Login user
+- `GET /api/auth/profile` - Get profile
+- `PUT /api/auth/profile` - Update profile
+
+### Products
+- `GET /api/products` - Get all products
+- `POST /api/products` - Create product
+- `GET /api/products/:id` - Get product
+- `PUT /api/products/:id` - Update product
+- `DELETE /api/products/:id` - Delete product
+
+### Orders
+- `GET /api/orders` - Get all orders
+- `POST /api/orders` - Create order
+- `PUT /api/orders/:id` - Update order
+
+### Payments
+- `POST /api/payments/verify` - Verify payment
 
 ---
 
-## 📱 Compatibility
+## 🔐 Environment Variables
 
-- Chrome, Firefox, Safari, Edge
-- Desktop, Tablet, Mobile
-- Fully responsive
+### Backend (`backend/.env`)
+```env
+PORT=3001
+MONGODB_URI=mongodb://localhost:27017/ecomarket
+JWT_SECRET=your-secret-key-change-in-production
+```
+
+### Frontend (`frontend-new/.env`)
+```env
+VITE_API_URL=http://localhost:3001/api
+VITE_USE_BACKEND=true
+```
 
 ---
 
-## 🆘 Troubleshooting
+## 🧪 Testing
 
-**Camera not working?**
-- Grant permissions
-- Use upload option
+### Test Backend
+```bash
+curl http://localhost:3001/api/health
+```
 
-**Products not showing?**
-- Check login
-- Verify products added
-- Check console (F12)
-
-**MongoDB error?**
-- Run `mongod`
-- Check connection
-- Verify installation
+### Test Frontend
+1. Open http://localhost:5173
+2. Register a new account
+3. Login
+4. Add products as seller
+5. Browse as buyer
+6. Place an order
 
 ---
 
 ## 📖 Documentation
 
-- `START_HERE.md` - Quick start
-- `SETUP_GUIDE.md` - Detailed setup
-- `BARCODE_GUIDE.md` - Barcode info
-- `FEATURES_SUMMARY.md` - Features
-- `TESTING_GUIDE.md` - Testing
+### Getting Started
+- **QUICK_START.md** - Local development setup
+- **TROUBLESHOOTING.md** - Common issues and solutions
+
+### Deployment
+- **deploy.md** - Quick deploy (5 minutes)
+- **DEPLOYMENT_QUICK_START.md** - Visual step-by-step guide
+- **DEPLOYMENT_GUIDE.md** - Complete deployment guide
+- **PRE_DEPLOYMENT_CHECKLIST.md** - Pre-deployment checklist
+
+### Features
+- **frontend-new/FEATURES.md** - Complete feature list
+- **frontend-new/PRODUCT_DETAILS.md** - Product details modal
+- **frontend-new/UPI_PAYMENT_GUIDE.md** - Payment integration
 
 ---
 
-## 🎉 You're Ready!
+## 🚀 Deployment
 
-All features implemented:
-- ✅ Authentication
-- ✅ 3 User Roles
-- ✅ Product Management
-- ✅ Unique Barcodes
-- ✅ Eco-Ratings
-- ✅ Shopping Cart
-- ✅ Payments
-- ✅ Order Tracking
-- ✅ Customer Management
-- ✅ Feedback System
-- ✅ 7 Languages
-- ✅ Voice Assistant
-- ✅ Chatbot
-- ✅ Barcode Scanner
-- ✅ Search & Filter
-- ✅ Rental System
+### Deploy to Production (FREE - 5 Minutes)
 
-**Start now!** 🚀
+**Quick Start**: Open `START_DEPLOYMENT.txt` or `deploy.md`
+
+#### Three Simple Steps:
+
+1. **Database** (MongoDB Atlas) - 2 min
+   - Free 512MB cluster
+   - https://mongodb.com/cloud/atlas
+
+2. **Backend** (Render) - 2 min
+   - Free 750 hours/month
+   - https://render.com
+
+3. **Frontend** (Vercel) - 1 min
+   - Free 100GB bandwidth
+   - https://vercel.com
+
+**Total Cost**: $0/month on free tier
+
+**Detailed Guides**:
+- `deploy.md` - Ultra-quick guide (5 min)
+- `DEPLOYMENT_QUICK_START.md` - Visual step-by-step
+- `DEPLOYMENT_GUIDE.md` - Complete guide (30 min)
+- `PRE_DEPLOYMENT_CHECKLIST.md` - Pre-flight checklist
+
+---
+
+## 🐛 Troubleshooting
+
+**Backend shows login page?**
+- Backend is API-only, use http://localhost:5173 for frontend
+
+**Products not loading?**
+- Check backend is running on port 3001
+- Check MongoDB is running
+- Check browser console for errors
+
+**Payment not working?**
+- Verify UPI ID format
+- Check payment details saved
+- Check order creation
+
+See **TROUBLESHOOTING.md** for more help.
+
+---
+
+## 🎯 Key Features Implemented
+
+✅ User authentication with JWT  
+✅ Three user roles (Buyer/Seller/Renter)  
+✅ Product management with images  
+✅ Product details modal  
+✅ Shopping cart and checkout  
+✅ UPI payment with QR codes  
+✅ Order tracking and history  
+✅ Payment verification  
+✅ Multilingual support (3 languages)  
+✅ Voice assistant  
+✅ AI chatbot  
+✅ Responsive design  
+✅ MongoDB database  
+✅ RESTful API  
+
+---
+
+## 📄 License
+
+Open source - Free to use for educational and commercial purposes.
+
+---
+
+## 🤝 Contributing
+
+Contributions welcome! Please open an issue or submit a pull request.
 
 ---
 
 **Built with ❤️ for sustainable e-commerce 🌱**
+
+**Ready to use!** Start both servers and visit http://localhost:5173

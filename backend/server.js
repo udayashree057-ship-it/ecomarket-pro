@@ -1,21 +1,23 @@
+// Load environment variables
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
-const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-production';
 
 // Middleware
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
-// Serve frontend static files from ../frontend
-app.use(express.static(path.join(__dirname, '../frontend')));
+// Backend API only - no static file serving
+// Frontend is served separately on port 5173 by Vite
 
 // MongoDB Connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/ecomarket';
@@ -33,7 +35,21 @@ const userSchema = new mongoose.Schema({
     name: String,
     email: { type: String, unique: true },
     password: String,
+    phone: String,
+    address: String,
     role: { type: String, enum: ['buyer', 'seller', 'renter'], default: 'buyer' },
+    paymentDetails: {
+        upi: {
+            upiId: String,
+            name: String
+        },
+        bank: {
+            accountName: String,
+            accountNumber: String,
+            ifscCode: String,
+            bankName: String
+        }
+    },
     createdAt: { type: Date, default: Date.now }
 });
 
@@ -42,11 +58,25 @@ const productSchema = new mongoose.Schema({
     name: String,
     description: String,
     price: Number,
+    originalPrice: Number,
     category: String,
-    imageUrl: String,
+    image: String,
     seller: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    sellerName: String,
+    sellerEmail: String,
+    sellerLocation: String,
+    sellerRating: Number,
     ecoRating: Number,
     carbonFootprint: Number,
+    manufacturer: String,
+    manufacturerLocation: String,
+    manufactureDate: String,
+    expiryDate: String,
+    usageInstructions: String,
+    recyclingInfo: String,
+    specifications: Object,
+    stock: { type: Number, default: 10 },
+    forRent: { type: Boolean, default: false },
     barcodeId: String,
     createdAt: { type: Date, default: Date.now }
 });
@@ -62,11 +92,25 @@ const customerSchema = new mongoose.Schema({
 
 // Order Schema
 const orderSchema = new mongoose.Schema({
-    customer: { type: mongoose.Schema.Types.ObjectId, ref: 'Customer' },
-    products: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
-    totalPrice: Number,
-    status: { type: String, enum: ['pending', 'confirmed', 'shipped', 'delivered'], default: 'pending' },
-    deliveryStatus: String,
+    buyer: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    buyerEmail: String,
+    buyerUpiId: String,
+    items: [{
+        productId: String,
+        name: String,
+        price: Number,
+        quantity: Number,
+        image: String,
+        sellerName: String,
+        sellerEmail: String,
+        sellerPaymentDetails: mongoose.Schema.Types.Mixed
+    }],
+    total: Number,
+    paymentMethod: String,
+    deliveryAddress: String,
+    transactionId: String,
+    paymentVerifiedAt: Date,
+    status: { type: String, enum: ['pending', 'awaiting_payment', 'paid', 'confirmed', 'shipped', 'delivered'], default: 'pending' },
     createdAt: { type: Date, default: Date.now }
 });
 
@@ -89,11 +133,13 @@ app.get('/api/health', (req, res) => {
 // Auth Routes
 app.post('/api/auth/register', async (req, res) => {
     try {
-        const { name, email, password, role } = req.body;
+        const { name, email, password, phone, address, role } = req.body;
         const hashedPassword = await bcrypt.hash(password, 10);
-        const user = new User({ name, email, password: hashedPassword, role });
+        const user = new User({ name, email, password: hashedPassword, phone, address, role });
         await user.save();
-        res.status(201).json({ message: 'User registered successfully', user: { id: user._id, email: user.email, role: user.role } });
+        const userResponse = user.toObject();
+        delete userResponse.password;
+        res.status(201).json({ message: 'User registered successfully', user: userResponse });
     } catch (err) {
         res.status(400).json({ error: err.message });
     }
@@ -107,9 +153,46 @@ app.post('/api/auth/login', async (req, res) => {
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) return res.status(401).json({ error: 'Invalid password' });
         const token = jwt.sign({ userId: user._id, role: user.role }, JWT_SECRET, { expiresIn: '7d' });
-        res.json({ token, user: { id: user._id, email: user.email, role: user.role } });
+        const userResponse = user.toObject();
+        delete userResponse.password;
+        res.json({ token, user: userResponse });
     } catch (err) {
         res.status(500).json({ error: err.message });
+    }
+});
+
+// Get user profile
+app.get('/api/auth/profile', async (req, res) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) return res.status(401).json({ error: 'No token provided' });
+        
+        const decoded = jwt.verify(token, JWT_SECRET);
+        const user = await User.findById(decoded.userId).select('-password');
+        if (!user) return res.status(404).json({ error: 'User not found' });
+        
+        res.json(user);
+    } catch (err) {
+        res.status(401).json({ error: 'Invalid token' });
+    }
+});
+
+// Update user profile
+app.put('/api/auth/profile', async (req, res) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) return res.status(401).json({ error: 'No token provided' });
+        
+        const decoded = jwt.verify(token, JWT_SECRET);
+        const user = await User.findByIdAndUpdate(
+            decoded.userId,
+            { $set: req.body },
+            { new: true }
+        ).select('-password');
+        
+        res.json(user);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
     }
 });
 
@@ -229,6 +312,40 @@ app.put('/api/orders/:id', async (req, res) => {
     }
 });
 
+// Payment Verification Route
+app.post('/api/payments/verify', async (req, res) => {
+    try {
+        const { orderId, transactionId, paymentMethod } = req.body;
+        
+        // In production, verify with payment gateway (Razorpay, PayU, etc.)
+        // For now, we'll do basic validation
+        
+        if (!orderId || !transactionId) {
+            return res.status(400).json({ error: 'Order ID and Transaction ID required' });
+        }
+
+        // Find and update order
+        const order = await Order.findById(orderId);
+        if (!order) {
+            return res.status(404).json({ error: 'Order not found' });
+        }
+
+        // Update order status
+        order.status = 'paid';
+        order.transactionId = transactionId;
+        order.paymentVerifiedAt = new Date();
+        await order.save();
+
+        res.json({ 
+            success: true, 
+            message: 'Payment verified successfully',
+            order 
+        });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 // Statistics Route
 app.get('/api/statistics', async (req, res) => {
     try {
@@ -242,10 +359,8 @@ app.get('/api/statistics', async (req, res) => {
     }
 });
 
-// Catch-all for frontend SPA routing
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/index.html'));
-});
+// API-only backend - no catch-all route
+// Frontend is served separately by Vite on port 5173
 
 // Start server
 app.listen(PORT, () => {
